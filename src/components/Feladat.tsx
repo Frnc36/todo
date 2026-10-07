@@ -1,12 +1,14 @@
-import type { AllapotTipus, TodoTipus } from "../adat"
+import type { TodoTipus } from "../adat";
+import { userTodoContext } from "../contexts/Todo.Context"
 
 interface FeladatProps {
     elem: TodoTipus
-    setAllapot: (index: number, allapot: AllapotTipus) => void;
     index: number
 }
 
-function Feladat({ elem, setAllapot, index }: FeladatProps) {
+function Feladat({ elem, index }: FeladatProps) {
+    /* a setAllapot() itt is közvetlen a contextből fogja megkapni */
+    const {setAllapot} =userTodoContext();
     return (
         <div className="todo">
             <span className="szoveg">{elem.tennivalo}</span>
